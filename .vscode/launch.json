@@ -1,0 +1,17 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run m2oep (CMake)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "cwd": "${workspaceFolder}",
+            "MIMode": "lldb",
+            "preLaunchTask": "CMake: build",
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        }
+
+    ]
+}
