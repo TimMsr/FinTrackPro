@@ -1,0 +1,11 @@
+# Build directories
+build/
+cmake-build-*/
+
+# OS files
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+
