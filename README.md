@@ -4,7 +4,7 @@
 
 FinTrack Pro tracks checking, savings and credit accounts, then turns the raw ledger into the figures that matter: net worth over time, cash flow, savings rate, budget variance, emergency-fund runway, and a compound-growth projection.
 
-**[Live demo →](https://YOUR-USERNAME.github.io/fintrack-pro/)** (runs on generated sample data in your browser)
+**[Live demo →](https://timmsr.github.io/FinTrackPro/)** (runs on generated sample data in your browser)
 
 ![Overview](docs/screenshots/overview.png)
 
