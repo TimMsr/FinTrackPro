@@ -4,6 +4,7 @@
 #include "Store.h"
 
 #include <algorithm>
+#include <cctype>
 #include <chrono>
 #include <stdexcept>
 
