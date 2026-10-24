@@ -2,8 +2,8 @@
 // Created by Tim Mäser on 30/09/2025.
 //
 
-#ifndef M2OEP_TMASER_CHECKINGACCOUNT_H
-#define M2OEP_TMASER_CHECKINGACCOUNT_H
+#ifndef FINTRACK_CHECKINGACCOUNT_H
+#define FINTRACK_CHECKINGACCOUNT_H
 
 #include "core/money.h"
 #include <string>
@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif //M2OEP_TMASER_CHECKINGACCOUNT_H
+#endif //FINTRACK_CHECKINGACCOUNT_H

@@ -2,8 +2,8 @@
 // Created by Tim Mäser on 01/10/2025.
 //
 
-#ifndef M2OEP_TMASER_RECURRINGTRANSACTION_H
-#define M2OEP_TMASER_RECURRINGTRANSACTION_H
+#ifndef FINTRACK_RECURRINGTRANSACTION_H
+#define FINTRACK_RECURRINGTRANSACTION_H
 #include "transaction.h"
 #include "core/Ledger.h"
 
@@ -32,4 +32,4 @@ public:
 };
 
 
-#endif //M2OEP_TMASER_RECURRINGTRANSACTION_H
+#endif //FINTRACK_RECURRINGTRANSACTION_H

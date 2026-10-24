@@ -2,8 +2,8 @@
 // Created by Tim Mäser on 30/09/2025.
 //
 
-#ifndef M2OEP_TMASER_ACCOUNT_H
-#define M2OEP_TMASER_ACCOUNT_H
+#ifndef FINTRACK_ACCOUNT_H
+#define FINTRACK_ACCOUNT_H
 #include "accounts/Account.h"
 #include <string>
 #include <sstream>
@@ -29,4 +29,4 @@ public:
 };
 
 
-#endif //M2OEP_TMASER_ACCOUNT_H
+#endif //FINTRACK_ACCOUNT_H

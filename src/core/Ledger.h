@@ -1,10 +1,8 @@
 // Ledger interface
 // In memory list of transactions with small query helpers
-// Some methods are not used yet in this module, since i did not have time to fully incorporate them.
-// For example, sumByMonth is not used yet but will be used for future module.
 
-#ifndef M1OEP_TMASER_LEDGER_H
-#define M1OEP_TMASER_LEDGER_H
+#ifndef FINTRACK_LEDGER_H
+#define FINTRACK_LEDGER_H
 
 #include "transaction.h"
 #include <vector>
@@ -25,6 +23,9 @@ public:
     // sum total balance for a given month
     Money sumByMonth(const std::string& yyyy_mm) const;
 
+    // sum of every transaction (running balance)
+    Money total() const;
+
     // sum by a category for a given month
     Money sumByCategory(const std::string& yyyy_mm, Category cat) const;
 
@@ -39,4 +40,4 @@ public:
 };
 
 
-#endif //M1OEP_TMASER_LEDGER_H
+#endif //FINTRACK_LEDGER_H

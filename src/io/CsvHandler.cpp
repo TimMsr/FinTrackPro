@@ -129,6 +129,9 @@ void CsvHandler::readCSV(const std::string& filename, Ledger& ledger) const {
         std::string line;
         bool headerSkipped = false;
         while (std::getline(inputFile, line)) {
+            if (!line.empty() && line.back() == '\r') {
+                line.pop_back();
+            }
             if (line.empty()) {
                 continue;
             }
@@ -147,7 +150,8 @@ void CsvHandler::readCSV(const std::string& filename, Ledger& ledger) const {
             if (!std::getline(ss, account, ',')) continue;
             if (!std::getline(ss, category, ',')) continue;
             if (!std::getline(ss, amount, ',')) continue;
-            if (!std::getline(ss, note, ',')) note = "";
+            // note is the final column, so read the rest of the line to keep any commas
+            if (!std::getline(ss, note)) note = "";
             Money money = Money::fromString(amount);
             Category cat = stringToCategory(category);
             Transaction tx(id, date, money, cat, note);
@@ -159,5 +163,45 @@ void CsvHandler::readCSV(const std::string& filename, Ledger& ledger) const {
         }
 
         inputFile.close();
+    }
+}
+
+// write each category limit on its own line
+void CsvHandler::writeBudget(const std::string& filename, const Budget& budget) const {
+    std::ofstream output(filename, std::ios::out | std::ios::trunc);
+    if (!output.is_open()) {
+        return;
+    }
+    output << "Category,Limit" << std::endl;
+    for (const auto& [cat, limit] : budget.getLimits()) {
+        output << categoryToString(cat) << "," << limit.toString() << std::endl;
+    }
+}
+
+// load limits written by writeBudget, skipping anything malformed
+void CsvHandler::readBudget(const std::string& filename, Budget& budget) const {
+    std::ifstream input(filename);
+    std::string line;
+    bool headerSkipped = false;
+    while (std::getline(input, line)) {
+        if (!line.empty() && line.back() == '\r') {
+            line.pop_back();
+        }
+        if (line.empty()) {
+            continue;
+        }
+        if (!headerSkipped) {
+            headerSkipped = true;
+            continue;
+        }
+        auto comma = line.find(',');
+        if (comma == std::string::npos) {
+            continue;
+        }
+        try {
+            budget.setLimit(stringToCategory(line.substr(0, comma)), Money::fromString(line.substr(comma + 1)));
+        } catch (const std::exception&) {
+            // ignore rows we cannot parse
+        }
     }
 }

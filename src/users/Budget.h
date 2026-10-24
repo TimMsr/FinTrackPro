@@ -1,7 +1,7 @@
-#ifndef M2OEP_TMASER_BUDGET_H
-#define M2OEP_TMASER_BUDGET_H
+#ifndef FINTRACK_BUDGET_H
+#define FINTRACK_BUDGET_H
 #include <map>
-#include "Category.h"
+#include "category.h"
 #include "money.h"
 
 class Budget {
@@ -16,10 +16,13 @@ public:
     // fetch the saved limit (defaults to zero if unset)
     Money getLimit(Category cat);
 
+    // every category that has a limit set
+    const std::map<Category, Money>& getLimits() const { return limits; }
+
     // Compare spending vs budget
     Money variance(Category cat, const Money& spent) const;
 
 };
 
 
-#endif //M2OEP_TMASER_BUDGET_H
+#endif //FINTRACK_BUDGET_H

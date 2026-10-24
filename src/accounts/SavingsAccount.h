@@ -2,8 +2,8 @@
 // Created by Tim Mäser on 30/09/2025.
 //
 
-#ifndef M2OEP_TMASER_SAVINGSACCOUNT_H
-#define M2OEP_TMASER_SAVINGSACCOUNT_H
+#ifndef FINTRACK_SAVINGSACCOUNT_H
+#define FINTRACK_SAVINGSACCOUNT_H
 
 #include "core/money.h"
 #include <string>
@@ -12,11 +12,9 @@
 
 class SavingsAccount : public Account {
     public:
-    double interestRate{0.05};
+    double interestRate{0.05}; // annual rate, paid monthly
 
     explicit SavingsAccount(const std::string& name);
-
-    Money balance(const std::string& yyyy_mm) const override;
 
     void setInterestRate(double rate);
     double getInterestRate() const;
@@ -29,4 +27,4 @@ class SavingsAccount : public Account {
 };
 
 
-#endif //M2OEP_TMASER_SAVINGSACCOUNT_H
+#endif //FINTRACK_SAVINGSACCOUNT_H

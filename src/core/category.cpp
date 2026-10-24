@@ -1,6 +1,6 @@
 // Category helpers
 // provides string conversion in both directions
-#include "core/Category.h"
+#include "core/category.h"
 #include <algorithm>
 #include <stdexcept>
 

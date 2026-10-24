@@ -15,7 +15,7 @@ bool validDateFull(const std::string& date) {
         int month = std::stoi(date.substr(5, 2));
         int day = std::stoi(date.substr(8, 2));
 
-        if (year > 2026) return false; // upper bound to surpress future typos
+        if (year < 1900 || year > 2100) return false; // bounds to surpress typos
         if (month < 1 || month > 12) return false;
         if (day < 1 || day > 31) return false;
         return true;
@@ -42,10 +42,10 @@ bool validAmount(const std::string& s) {
     // allow $ prefix, optional decimal point, max 2 decimals
     if (s.empty()) return false;
 
-    int start = (s[0] == '$') ? 1 : 0;  // allow optional $
+    size_t start = (s[0] == '$') ? 1 : 0;  // allow optional $
     int dots = 0; // dots counter
 
-    for (int i = start; i < s.size(); i++) {
+    for (size_t i = start; i < s.size(); i++) {
         if (s[i] == '.') {
             dots++;
             if (dots > 1) return false; // only one decimal allowed

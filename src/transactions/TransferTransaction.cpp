@@ -1,17 +1,18 @@
 //
 // Created by Tim Mäser on 01/10/2025.
 //
-#include <iostream>
 #include "TransferTransaction.h"
 
-void TransferTransaction::execute(Account& from, Account& to, const Money& amount) {
+bool TransferTransaction::execute(Account& from, Account& to) const {
     // block the one transfer combination we do not support
     if (dynamic_cast<CreditAccount*>(&from) && dynamic_cast<SavingsAccount*>(&to)) {
-        std::cout << "Error: Cannot transfer directly from Credit to Savings." << std::endl;
-        return;
+        return false;
     }
-    // log matching entries on both sides of the transfer
-    from.addTransaction(Transaction("X", getDate(), amount, Category::Transfer, "Transfer Out"));
-    to.addTransaction(Transaction("X", getDate(), amount, Category::Transfer, "Transfer In"));
-
+    // log matching entries on both sides: a debit on the source, a credit on the destination
+    Money amount = getAmount();
+    from.addTransaction(Transaction(getID() + "-OUT", getDate(), Money(0) - amount, Category::Transfer,
+                                    "Transfer to " + to.getName()));
+    to.addTransaction(Transaction(getID() + "-IN", getDate(), amount, Category::Transfer,
+                                  "Transfer from " + from.getName()));
+    return true;
 }

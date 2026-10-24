@@ -1,6 +1,12 @@
-# Build directories
 build/
 cmake-build-*/
+
+# Runtime data (generate with: npm --prefix web run sample)
+data/
+
+# Web
+node_modules/
+web/dist/
 
 # OS files
 .DS_Store
@@ -8,4 +14,3 @@ cmake-build-*/
 # IDE
 .idea/
 *.iml
-

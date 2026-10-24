@@ -47,9 +47,19 @@
     Money Money::fromString(const std::string &str) {
             std::string s = str;
 
+            // accept a leading sign before the dollar sign (eg -$12.34)
+            bool negative = false;
+            if (!s.empty() && (s[0] == '-' || s[0] == '+')) {
+                negative = s[0] == '-';
+                s = s.substr(1);
+            }
+
             // Remove $ if present
             if (!s.empty() && s[0] == '$') {
                 s = s.substr(1);
+            }
+            if (negative) {
+                s = "-" + s;
             }
 
             // convert to double (eg 12.34 -> 12.34)
@@ -63,8 +73,10 @@
 
     // easy visible output for user.
     std::string Money::toString() const {
-        long long dollars = cents / 100;
-        long long remainder = std::abs(cents % 100);
-        // format as $D.CC; keep it compact
-        return "$" + std::to_string(dollars) + "." + (remainder < 10 ? "0" : "") + std::to_string(remainder);
+        // work on the magnitude so values like -0.50 keep their sign
+        long long magnitude = cents < 0 ? -cents : cents;
+        long long dollars = magnitude / 100;
+        long long remainder = magnitude % 100;
+        // format as $D.CC or -$D.CC; keep it compact
+        return std::string(cents < 0 ? "-$" : "$") + std::to_string(dollars) + "." + (remainder < 10 ? "0" : "") + std::to_string(remainder);
     }

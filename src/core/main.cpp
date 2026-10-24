@@ -1,4 +1,4 @@
-// FinTrack Pro entrypoint for Module 2
+// FinTrack Pro terminal entrypoint
 // Console workflow for creating accounts, importing data, and managing activity.
 #include <algorithm>
 #include <cctype>

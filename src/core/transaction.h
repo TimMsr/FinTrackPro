@@ -1,7 +1,7 @@
 // Transaction record
 // Holds id, date, signed amount, category, and a short note.
-#ifndef M1OEP_TMASER_TRANSACTION_H
-#define M1OEP_TMASER_TRANSACTION_H
+#ifndef FINTRACK_TRANSACTION_H
+#define FINTRACK_TRANSACTION_H
 #include <string>
 // Forward declaration for std::ostream
 #include <iosfwd>
@@ -50,4 +50,4 @@ public:
 };
 
 
-#endif //M1OEP_TMASER_TRANSACTION_H
+#endif //FINTRACK_TRANSACTION_H

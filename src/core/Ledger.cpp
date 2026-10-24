@@ -19,6 +19,15 @@ Money Ledger::sumByMonth(const std::string& yyyy_mm) const {
     return sum;
 }
 
+// Computes sum of every transaction in the ledger
+Money Ledger::total() const {
+    Money sum(0);
+    for (const Transaction& t : items) {
+        sum = sum + t.getAmount();
+    }
+    return sum;
+}
+
 // Computes sum of transactions by month and category
 Money Ledger::sumByCategory(const std::string& yyyy_mm, Category cat) const {
     Money sum(0);

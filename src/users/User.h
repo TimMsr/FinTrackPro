@@ -2,8 +2,8 @@
 // Has-A relationship (one user has multiple accounts)
 //
 
-#ifndef M2OEP_TMASER_USER_H
-#define M2OEP_TMASER_USER_H
+#ifndef FINTRACK_USER_H
+#define FINTRACK_USER_H
 #include <string>
 #include "accounts/Account.h"
 #include "core/money.h"
@@ -33,4 +33,4 @@ public:
 };
 
 
-#endif //M2OEP_TMASER_USER_H
+#endif //FINTRACK_USER_H

@@ -4,8 +4,8 @@
 #ifndef MONEY_H
 #define MONEY_H
 
-#ifndef M1OEP_TMASER_MONEY_H
-#define M1OEP_TMASER_MONEY_H
+#ifndef FINTRACK_MONEY_H
+#define FINTRACK_MONEY_H
 
 #include <string>
 
@@ -46,5 +46,5 @@ public:
 };
 
 
-#endif //M1OEP_TMASER_MONEY_H
+#endif //FINTRACK_MONEY_H
 #endif

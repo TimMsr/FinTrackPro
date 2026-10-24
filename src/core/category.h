@@ -2,8 +2,8 @@
 // Simple enum for tagging transactions with broad buckets
 // keep names stable to avoid brittle string matches
 
-#ifndef M1OEP_TMASER_CATEGORY_H
-#define M1OEP_TMASER_CATEGORY_H
+#ifndef FINTRACK_CATEGORY_H
+#define FINTRACK_CATEGORY_H
 
 #ifndef CATEGORY_H
 #define CATEGORY_H
@@ -27,4 +27,4 @@ Category stringToCategory(const std::string& str);
 
 #endif
 
-#endif //M1OEP_TMASER_CATEGORY_H
+#endif //FINTRACK_CATEGORY_H

@@ -2,8 +2,8 @@
 // Created by Tim Mäser on 01/10/2025.
 //
 
-#ifndef M2OEP_TMASER_TRANSFERTRANSACTION_H
-#define M2OEP_TMASER_TRANSFERTRANSACTION_H
+#ifndef FINTRACK_TRANSFERTRANSACTION_H
+#define FINTRACK_TRANSFERTRANSACTION_H
 #include "transaction.h"
 #include "accounts/Account.h"
 #include "accounts/CreditAccount.h"
@@ -14,10 +14,13 @@
 
 class TransferTransaction: public Transaction {
 public:
+    using Transaction::Transaction;
+
     // move money between two accounts while logging mirror entries
-    void execute(Account& from, Account& to, const Money& amount);
+    // returns false when the combination of accounts is not allowed
+    bool execute(Account& from, Account& to) const;
 
 };
 
 
-#endif //M2OEP_TMASER_TRANSFERTRANSACTION_H
+#endif //FINTRACK_TRANSFERTRANSACTION_H

@@ -2,8 +2,8 @@
 // Created by Tim Mäser on 30/09/2025.
 //
 
-#ifndef M2OEP_TMASER_CREDITACCOUNT_H
-#define M2OEP_TMASER_CREDITACCOUNT_H
+#ifndef FINTRACK_CREDITACCOUNT_H
+#define FINTRACK_CREDITACCOUNT_H
 
 #include "Account.h"
 #include "core/money.h"
@@ -19,4 +19,4 @@ public:
 };
 
 
-#endif //M2OEP_TMASER_CREDITACCOUNT_H
+#endif //FINTRACK_CREDITACCOUNT_H
