@@ -121,3 +121,8 @@ third_party/     cpp-httplib, nlohmann/json (single header)
 - Import bank statements (OFX/CSV mapping)
 - Custom categories and merchant rules
 - Investment accounts with holdings and time-weighted return
+
+## AI Usage
+
+- Backend fully created myself without AI usage
+- Front-end design and sample data created with support of AI
